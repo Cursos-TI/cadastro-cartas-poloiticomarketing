@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 // Desafio Super Trunfo - Países
-// Nível Mestre: comparação das cartas e cálculo do Super Poder
+// Nível Mestre: Novato - Comparação de duas cartas com base em um único atributo
 
 int main() {
 
     // ===== Variáveis da Carta 1 =====
-    char estado1;
+    char estado1[3];
     char codigo1[4];
     char cidade1[50];
     unsigned long int populacao1;
@@ -16,10 +16,10 @@ int main() {
 
     float densidade1;
     float pibPerCapita1;
-    float superPoder1;
+    float superPoder1; // melhoria
 
     // ===== Variáveis da Carta 2 =====
-    char estado2;
+    char estado2[3];
     char codigo2[4];
     char cidade2[50];
     unsigned long int populacao2;
@@ -29,7 +29,7 @@ int main() {
 
     float densidade2;
     float pibPerCapita2;
-    float superPoder2;
+    float superPoder2; // melhoria
 
     // ===== Entrada de dados da Carta 1 =====
     printf("Cadastro da Carta 1\n");
@@ -82,11 +82,15 @@ int main() {
     // ===== Cálculos da Carta 1 =====
     densidade1 = (float) populacao1 / area1;
     pibPerCapita1 = pib1 / (float) populacao1;
-    superPoder1 = (float) populacao1 + area1 + pib1 + pontosTuristicos1 + pibPerCapita1 + (1.0f / densidade1);
+    
 
     // ===== Cálculos da Carta 2 =====
     densidade2 = (float) populacao2 / area2;
     pibPerCapita2 = pib2 / (float) populacao2;
+    
+
+    // Super poder (Melhoria baseada no desafio)
+    superPoder1 = (float) populacao1 + area1 + pib1 + pontosTuristicos1 + pibPerCapita1 + (1.0f / densidade1);
     superPoder2 = (float) populacao2 + area2 + pib2 + pontosTuristicos2 + pibPerCapita2 + (1.0f / densidade2);
 
     // ===== Exibição dos dados da Carta 1 =====
@@ -124,6 +128,23 @@ int main() {
     printf("Densidade Populacional: %d\n", densidade1 < densidade2);
     printf("PIB per Capita: %d\n", pibPerCapita1 > pibPerCapita2);
     printf("Super Poder: %d\n", superPoder1 > superPoder2);
+
+    // ======== Comparação de Atributos============//
+
+    printf ("Comparação de atributos\n");
+    printf ("Carta 1 - %s, (%s): %d\n", cidade1,estado1, populacao1);
+    printf ("carta 2 - %s, (%s): %d\n", cidade2, estado2, populacao2);
+
+    if (populacao1> populacao2){
+        printf ("Resultado: Carta 1 (%s) venceu!\n", cidade1);
+
+    } else if (populacao2 > populacao1){
+        printf ("Resultado: Carta 2 (%s) Venceu\n", cidade2);
+
+    } else {
+        printf ("Resultado: Empate!\n");
+    }
+       
 
     return 0;
 }
